@@ -66,6 +66,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Asli.html" />
+    <Content Include="betul.html" />
+    <Content Include="derya.html" />
+    <Content Include="Maide.html" />
     <Content Include="ozselin.html" />
     <Content Include="packages.config" />
     <Content Include="resul.html" />
@@ -90,6 +94,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
