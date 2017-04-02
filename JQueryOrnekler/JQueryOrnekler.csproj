@@ -69,6 +69,7 @@
     <Content Include="derya.html" />
     <Content Include="ozselin.html" />
     <Content Include="packages.config" />
+    <Content Include="resul.html" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Web.Debug.config">
