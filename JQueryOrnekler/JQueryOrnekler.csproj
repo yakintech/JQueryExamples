@@ -66,6 +66,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="betul.html" />
+    <Content Include="derya.html" />
     <Content Include="ozselin.html" />
     <Content Include="packages.config" />
     <Content Include="resul.html" />
