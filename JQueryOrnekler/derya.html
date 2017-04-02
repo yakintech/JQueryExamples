@@ -4,8 +4,54 @@
     <title></title>
 	<meta charset="utf-8" />
     <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
     <p>Çağatay</p>
+
+    <table class="table table-striped">
+        <tr onclick="">
+            <th>Id</th>
+            <th>Cutomer</th>
+        <th>Ship city</th>
+        <th>ship Country</th>
+        
+        </tr>
+    </table>
 </body>
 </html>
+<script>
+    var url ="http://northwind.servicestack.net/orders.json";
+    $.getJSON(url, function (data) {
+        var list = data.Results
+        $.each(list, function (key, item) {
+            $("table").append("<tr>"+ "<td>"+item.Order.Id+"</td>"+
+                "<td onclick='FindOrderDetails("+item.Order.Id+")'>" + item.Order.CustomerId + "</td>" +
+                "<td>"+item.Order.ShipCity+"</td>"+
+                "<td>"+item.Order.ShipCountry+"</td>"+"</tr>")
+            //console.log(item.Order.CutomerId)
+
+
+        })
+
+    })
+    function FindOrderDetails(id) {
+        //alert(id);
+        $.getJSON(url, function (data) {
+           var list =data.Results;
+           $.each(list, function (key,item) {
+               var list2 = item.OrderDetails;
+               $.each(list2,function(x,item2){
+                   if(item2.OrderId==id)
+                   {
+                       console.log(item2);
+                   }
+
+               })
+           })
+        })
+
+
+    }
+</script>
