@@ -2,11 +2,57 @@
 <html>
 <head>
     <title></title>
-	<meta charset="utf-8" />
-    
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" rel="stylesheet" />
 </head>
 <body>
-    <h1> Bu bir başlıktır :) </h1>
-    <p> Aslı değişiklik istedi :) </p>
+    <table class="table table-striped">
+        <tr>
+            <th>  ID </th>
+            <th> Customer ID </th>
+            <th>  Ship City </th>
+            <th> Ship Country  </th>
+
+        </tr>
+    </table>
 </body>
 </html>
+
+<script>
+    var url = "http://northwind.servicestack.net/orders.json";
+    $.getJSON(url, function (data) {
+        var list = data.Results
+        //console.log(list);
+        $.each(list, function (key, item) {
+            $("table").append("<tr>" +
+
+                "<td onclick='FindOrderDetails(" + item.Order.Id + ")'>" + item.Order.Id + "</td>" +
+                "<td>" + item.Order.CustomerId + "</td>" +
+                "<td>" + item.Order.ShipCity + "</td>" +
+                "<td>" + item.Order.ShipCountry + "</td>" +
+              "</tr>")
+        })
+    })
+    function FindOrderDetails(id) {
+        //alert(id);
+        //ekrana o order a ait order detailsleri yaz
+        //getjsonla veriyi çek içerisinde orderdetailsi bul(o orderid ye göre)
+        $.getJSON(url, function (data) {
+
+            var list = data.Results;
+            $.each(list, function (key, item) {
+                var list2 = item.OrderDetails; //list2 alısveris sepetim
+                $.each(list2, function (key, item2) {
+                    //console.log(item2);
+                    if (item2.OrderId == id) {
+                        console.log(item2);
+                    }
+
+                }) 
+            })
+        })
+    }
+
+</script>
